@@ -1,0 +1,156 @@
+[gd_scene format=3 uid="uid://ccxxne7j30us6"]
+
+[ext_resource type="Script" uid="uid://dwqcrd2ml6kp7" path="res://cenas/jogo/mainmenu.gd" id="1_xrpo0"]
+
+[node name="base" type="Node2D" unique_id=2080639906]
+script = ExtResource("1_xrpo0")
+
+[node name="Control" type="Control" parent="." unique_id=840057794]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="titulo" type="RichTextLabel" parent="Control" unique_id=1259755122]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 149.0
+theme_override_font_sizes/normal_font_size = 65
+text = "Chermical Pharma"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="version" type="Label" parent="Control" unique_id=948527364]
+layout_mode = 0
+offset_left = 1101.0
+offset_top = 618.0
+offset_right = 1143.0
+offset_bottom = 641.0
+text = "V0.01"
+
+[node name="but_ng" type="Button" parent="Control" unique_id=1388691120]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 300.0
+offset_right = 650.0
+offset_bottom = 346.0
+text = "novo jogo"
+
+[node name="but_load" type="Button" parent="Control" unique_id=946545700]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 360.0
+offset_right = 650.0
+offset_bottom = 406.0
+text = "carregar"
+
+[node name="but_exit" type="Button" parent="Control" unique_id=1728475664]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 420.0
+offset_right = 650.0
+offset_bottom = 466.0
+text = "sair"
+
+[node name="pan_load" type="PanelContainer" parent="Control" unique_id=1680663261]
+visible = false
+layout_mode = 0
+offset_left = 681.0
+offset_top = 241.0
+offset_right = 993.0
+offset_bottom = 506.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/pan_load" unique_id=1390953085]
+layout_mode = 2
+
+[node name="list_save" type="ItemList" parent="Control/pan_load/VBoxContainer" unique_id=873673584]
+layout_mode = 2
+size_flags_vertical = 3
+auto_width = true
+auto_height = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/pan_load/VBoxContainer" unique_id=433981111]
+layout_mode = 2
+alignment = 1
+
+[node name="but_cancel" type="Button" parent="Control/pan_load/VBoxContainer/HBoxContainer" unique_id=303902706]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+text = "cancelar"
+
+[node name="but_erase" type="Button" parent="Control/pan_load/VBoxContainer/HBoxContainer" unique_id=1676260993]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+disabled = true
+text = "apagar"
+
+[node name="but_loadFile" type="Button" parent="Control/pan_load/VBoxContainer/HBoxContainer" unique_id=236475533]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+disabled = true
+text = "carregar"
+
+[node name="pan_new" type="PanelContainer" parent="Control" unique_id=871598815]
+visible = false
+layout_mode = 0
+offset_left = 36.0
+offset_top = 297.0
+offset_right = 480.0
+offset_bottom = 458.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/pan_new" unique_id=285415043]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/pan_new/VBoxContainer" unique_id=767261922]
+layout_mode = 2
+size_flags_vertical = 3
+text = "nome da empresa:"
+
+[node name="input_file_name" type="TextEdit" parent="Control/pan_new/VBoxContainer" unique_id=432192140]
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "nome"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/pan_new/VBoxContainer" unique_id=1858677269]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/pan_new/VBoxContainer/HBoxContainer" unique_id=1655731040]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="but_new_cancel" type="Button" parent="Control/pan_new/VBoxContainer/HBoxContainer/MarginContainer" unique_id=1140760621]
+layout_mode = 2
+text = "cancelar"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control/pan_new/VBoxContainer/HBoxContainer" unique_id=2133632871]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="but_criar" type="Button" parent="Control/pan_new/VBoxContainer/HBoxContainer/MarginContainer2" unique_id=202272734]
+layout_mode = 2
+text = "criar"
+
+[connection signal="button_up" from="Control/but_ng" to="." method="_on_but_ng_button_up"]
+[connection signal="button_up" from="Control/but_load" to="." method="_on_but_load_button_up"]
+[connection signal="button_up" from="Control/but_exit" to="." method="_on_but_exit_button_up"]
+[connection signal="item_selected" from="Control/pan_load/VBoxContainer/list_save" to="." method="_on_list_save_item_selected"]
+[connection signal="button_up" from="Control/pan_load/VBoxContainer/HBoxContainer/but_cancel" to="." method="_on_but_cancel_button_up"]
+[connection signal="button_up" from="Control/pan_load/VBoxContainer/HBoxContainer/but_erase" to="." method="_on_but_erase_button_up"]
+[connection signal="button_up" from="Control/pan_load/VBoxContainer/HBoxContainer/but_loadFile" to="." method="_on_but_load_file_button_up"]
+[connection signal="text_changed" from="Control/pan_new/VBoxContainer/input_file_name" to="." method="_on_input_file_name_text_changed"]
+[connection signal="button_up" from="Control/pan_new/VBoxContainer/HBoxContainer/MarginContainer/but_new_cancel" to="." method="_on_but_new_cancel_button_up"]
+[connection signal="button_up" from="Control/pan_new/VBoxContainer/HBoxContainer/MarginContainer2/but_criar" to="." method="_on_but_criar_button_up"]

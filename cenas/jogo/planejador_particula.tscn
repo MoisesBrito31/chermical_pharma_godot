@@ -1,0 +1,385 @@
+[gd_scene format=3 uid="uid://bulwpqd8nuxf"]
+
+[ext_resource type="Script" uid="uid://cyfgdql40smpr" path="res://cenas/jogo/planejador_particula.gd" id="1_4mswc"]
+[ext_resource type="Texture2D" uid="uid://dakkesj6spuai" path="res://assets/formas/circulo.png" id="2_1m5ii"]
+[ext_resource type="Texture2D" uid="uid://cakl750x60dyt" path="res://assets/formas/quadrado.png" id="3_gwtw4"]
+[ext_resource type="Texture2D" uid="uid://bxe4v1uryubn3" path="res://assets/formas/triangulo.png" id="4_oigbl"]
+[ext_resource type="Texture2D" uid="uid://dl68xtnwtnm04" path="res://assets/formas/pentagono.png" id="5_be75v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4mswc"]
+size = Vector2(69.5, 67.5)
+
+[node name="planejador_particula" type="Control" unique_id=1289908271 node_paths=PackedStringArray("pan_add_par", "pan_actions", "pan_alerta", "txt_alerta", "area_particulas", "area_matrix", "lig_valor", "matrix_point")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+script = ExtResource("1_4mswc")
+pan_add_par = NodePath("PanelContainer")
+pan_actions = NodePath("PanelContainer2")
+pan_alerta = NodePath("pan_alerta")
+txt_alerta = NodePath("pan_alerta/Label")
+area_particulas = NodePath("particulas")
+area_matrix = NodePath("matrix")
+lig_valor = NodePath("PanelContainer2/HBoxContainer/OptionButton")
+matrix_point = NodePath("matrix/drag_drop_pivot_1")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=775118292]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0.22352941, 0.23921569, 0.24705882, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1477295202]
+layout_mode = 1
+offset_right = 354.0
+offset_bottom = 42.0
+theme_override_font_sizes/font_size = 30
+text = "Planejador de Moléculas"
+
+[node name="but_fechar" type="Button" parent="." unique_id=1082968108]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -61.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "Fechar"
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1381028040]
+visible = false
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PanelContainer" unique_id=437822714]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Adicionar Particula"
+
+[node name="but_fechar_add_par" type="Button" parent="PanelContainer" unique_id=714254278]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "Fechar"
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer" unique_id=508286162]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 4
+
+[node name="but_c_min" type="TextureButton" parent="PanelContainer/GridContainer" unique_id=283117228]
+self_modulate = Color(1, 0.03137255, 0.023529412, 1)
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+texture_normal = ExtResource("2_1m5ii")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="PanelContainer/GridContainer/but_c_min" unique_id=1483278016]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="but_q_min" type="TextureButton" parent="PanelContainer/GridContainer" unique_id=75754826]
+self_modulate = Color(1, 0.043137256, 0.03137255, 1)
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("3_gwtw4")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="PanelContainer/GridContainer/but_q_min" unique_id=1063340120]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="but_t_min" type="TextureButton" parent="PanelContainer/GridContainer" unique_id=1727749615]
+self_modulate = Color(1, 0.023529412, 0.047058824, 1)
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("4_oigbl")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="PanelContainer/GridContainer/but_t_min" unique_id=2127855464]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="but_p_min" type="TextureButton" parent="PanelContainer/GridContainer" unique_id=331240126]
+self_modulate = Color(1, 0.011764706, 0, 1)
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("5_be75v")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="PanelContainer/GridContainer/but_p_min" unique_id=924945442]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="but_c_plu" type="TextureButton" parent="PanelContainer/GridContainer" unique_id=1813424908]
+self_modulate = Color(0.05882353, 0.03137255, 0.9647059, 1)
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+texture_normal = ExtResource("2_1m5ii")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="PanelContainer/GridContainer/but_c_plu" unique_id=487141787]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="but_q_plu" type="TextureButton" parent="PanelContainer/GridContainer" unique_id=1454331526]
+self_modulate = Color(0.019607844, 0.043137256, 0.9882353, 1)
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("3_gwtw4")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="PanelContainer/GridContainer/but_q_plu" unique_id=629610795]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="but_t_plu" type="TextureButton" parent="PanelContainer/GridContainer" unique_id=1515253]
+self_modulate = Color(0.03529412, 0.023529412, 0.9764706, 1)
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("4_oigbl")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="PanelContainer/GridContainer/but_t_plu" unique_id=1879703683]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="but_p_plu" type="TextureButton" parent="PanelContainer/GridContainer" unique_id=1490014995]
+self_modulate = Color(0, 0.011764706, 0.9529412, 1)
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("5_be75v")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="PanelContainer/GridContainer/but_p_plu" unique_id=596204616]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="matrix" type="Node2D" parent="." unique_id=364160124]
+visible = false
+
+[node name="drag_drop_pivot_1" type="Area2D" parent="matrix" unique_id=69409216]
+position = Vector2(220, 94)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="matrix/drag_drop_pivot_1" unique_id=1954566095]
+shape = SubResource("RectangleShape2D_4mswc")
+
+[node name="Label" type="Label" parent="matrix/drag_drop_pivot_1" unique_id=1213637476]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="particulas" type="Node2D" parent="." unique_id=56832953]
+
+[node name="PanelContainer2" type="PanelContainer" parent="." unique_id=249785423]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer2" unique_id=14453826]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="but_add_par" type="Button" parent="PanelContainer2/HBoxContainer" unique_id=272454972]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+text = "+ Particula"
+
+[node name="Label" type="Label" parent="PanelContainer2/HBoxContainer" unique_id=1426187985]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "+Ligações:"
+
+[node name="OptionButton" type="OptionButton" parent="PanelContainer2/HBoxContainer" unique_id=16514243]
+layout_mode = 2
+selected = 0
+allow_reselect = true
+item_count = 3
+popup/item_0/text = "1"
+popup/item_0/id = 0
+popup/item_1/text = "2"
+popup/item_1/id = 1
+popup/item_2/text = "3"
+popup/item_2/id = 2
+
+[node name="but_salvar" type="Button" parent="PanelContainer2/HBoxContainer" unique_id=342006935]
+layout_mode = 2
+text = "Salvar Molecula"
+
+[node name="pan_alerta" type="PanelContainer" parent="." unique_id=261079435]
+visible = false
+z_index = 10
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="pan_alerta" unique_id=1511922254]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Descrevo aqui a falha que ocorreu!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="pan_alerta" unique_id=1802391052]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "OK"
+
+[connection signal="pressed" from="but_fechar" to="." method="_on_but_fechar_pressed"]
+[connection signal="button_up" from="PanelContainer/but_fechar_add_par" to="." method="_on_but_fechar_add_par_button_up"]
+[connection signal="button_up" from="PanelContainer/GridContainer/but_c_min" to="." method="_on_but_c_button_up"]
+[connection signal="button_up" from="PanelContainer/GridContainer/but_q_min" to="." method="_on_but_q_button_up"]
+[connection signal="button_up" from="PanelContainer/GridContainer/but_t_min" to="." method="_on_but_t_button_up"]
+[connection signal="button_up" from="PanelContainer/GridContainer/but_p_min" to="." method="_on_but_p_button_up"]
+[connection signal="button_up" from="PanelContainer/GridContainer/but_c_plu" to="." method="_on_but_c_plu_button_up"]
+[connection signal="button_up" from="PanelContainer/GridContainer/but_q_plu" to="." method="_on_but_q_plu_button_up"]
+[connection signal="button_up" from="PanelContainer/GridContainer/but_t_plu" to="." method="_on_but_t_plu_button_up"]
+[connection signal="button_up" from="PanelContainer/GridContainer/but_p_plu" to="." method="_on_but_p_plu_button_up"]
+[connection signal="button_up" from="PanelContainer2/HBoxContainer/but_add_par" to="." method="_on_but_add_par_button_up"]
+[connection signal="button_up" from="PanelContainer2/HBoxContainer/but_salvar" to="." method="_on_but_salvar_button_up"]
+[connection signal="button_up" from="pan_alerta/Button" to="." method="_on_button_button_up"]

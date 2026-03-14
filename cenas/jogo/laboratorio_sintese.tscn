@@ -1,0 +1,154 @@
+[gd_scene format=3 uid="uid://db1e4y5eg83i0"]
+
+[ext_resource type="Script" uid="uid://vqixs0t1dqu0" path="res://cenas/jogo/laboratorio_sintese.gd" id="1_brcl8"]
+[ext_resource type="PackedScene" uid="uid://coeb5yijl6j3l" path="res://cenas/laboratorio_sintese/seletor_molecula.tscn" id="2_4l2hq"]
+
+[node name="laboratorio_sintese" type="Control" unique_id=824608601 node_paths=PackedStringArray("but_sintese", "resultView", "pan_alert", "txt_alert", "but_salvar")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_brcl8")
+but_sintese = NodePath("Control/but_sintase")
+resultView = NodePath("SubViewportContainer/SubViewport")
+pan_alert = NodePath("pan_alerta")
+txt_alert = NodePath("pan_alerta/Label")
+but_salvar = NodePath("Control/but_salvar")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1543141646]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=813571560]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.22745098, 0.23529412, 0.23921569, 1)
+
+[node name="Label" type="Label" parent="." unique_id=959512594]
+layout_mode = 1
+offset_top = 4.0
+offset_right = 175.0
+offset_bottom = 27.0
+text = "Laboratório de Sintese"
+
+[node name="but_fechar" type="Button" parent="." unique_id=985549172]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -175.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "Fechar"
+
+[node name="Control" type="Control" parent="." unique_id=1213919193]
+anchors_preset = 0
+offset_left = 140.0
+offset_top = 106.0
+offset_right = 1010.0
+offset_bottom = 342.0
+
+[node name="seletor_molecula" parent="Control" unique_id=113281983 instance=ExtResource("2_4l2hq")]
+layout_mode = 1
+offset_left = 91.0
+offset_top = 7.0
+offset_right = -495.0
+offset_bottom = -57.0
+
+[node name="seletor_molecula2" parent="Control" unique_id=2044388996 instance=ExtResource("2_4l2hq")]
+layout_mode = 1
+offset_left = 478.0
+offset_top = 6.0
+offset_right = -83.0
+offset_bottom = -59.0
+
+[node name="but_sintase" type="Button" parent="Control" unique_id=2018946024]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -36.0
+offset_top = -31.0
+offset_right = 36.0
+grow_horizontal = 2
+grow_vertical = 0
+disabled = true
+text = "Sitetizar"
+
+[node name="but_salvar" type="Button" parent="Control" unique_id=1895633952]
+layout_mode = 0
+offset_left = 535.0
+offset_top = 205.0
+offset_right = 591.0
+offset_bottom = 236.0
+disabled = true
+text = "Salvar"
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=175037570]
+layout_mode = 0
+offset_left = 412.0
+offset_top = 365.0
+offset_right = 732.0
+offset_bottom = 576.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=815466843]
+handle_input_locally = false
+size = Vector2i(320, 211)
+render_target_update_mode = 4
+
+[node name="pan_alerta" type="PanelContainer" parent="." unique_id=1208673182]
+visible = false
+z_index = 10
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="pan_alerta" unique_id=790423102]
+layout_mode = 2
+color = Color(0.20392157, 0.21176471, 0.23921569, 1)
+
+[node name="Label" type="Label" parent="pan_alerta" unique_id=1280003288]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Descrevo aqui a falha que ocorreu!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="pan_alerta" unique_id=188903398]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "OK"
+
+[connection signal="button_up" from="but_fechar" to="." method="_on_but_fechar_button_up"]
+[connection signal="selected" from="Control/seletor_molecula" to="." method="_on_seletor_molecula_selected"]
+[connection signal="selected" from="Control/seletor_molecula2" to="." method="_on_seletor_molecula_2_selected"]
+[connection signal="button_up" from="Control/but_sintase" to="." method="_on_but_sintase_button_up"]
+[connection signal="button_up" from="Control/but_salvar" to="." method="_on_but_salvar_button_up"]
+[connection signal="button_up" from="pan_alerta/Button" to="." method="_on_button_button_up"]

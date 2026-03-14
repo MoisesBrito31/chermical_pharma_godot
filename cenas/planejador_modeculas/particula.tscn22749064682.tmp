@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://yvjufs3pjxc0"]
+
+[ext_resource type="Texture2D" uid="uid://dakkesj6spuai" path="res://assets/formas/circulo.png" id="1_414q7"]
+[ext_resource type="Script" uid="uid://x3xgxre02t4o" path="res://cenas/planejador_modeculas/particula.gd" id="1_tf7q4"]
+
+[node name="particula" type="Node2D" unique_id=894019808 node_paths=PackedStringArray("sprite", "sinal")]
+script = ExtResource("1_tf7q4")
+sprite = NodePath("Sprite2D")
+sinal = NodePath("Sprite2D/Label")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1316974143]
+texture = ExtResource("1_414q7")
+
+[node name="Label" type="Label" parent="Sprite2D" unique_id=1797022668]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -225.0
+offset_right = -250.0
+offset_bottom = -225.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.011764706, 0.007843138, 0.03137255, 1)
+theme_override_font_sizes/font_size = 200
+text = "+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Area2D" type="Area2D" parent="Sprite2D" unique_id=1970805536]
+
+[node name="Collisionshape2D" type="CollisionShape2D" parent="Sprite2D/Area2D" unique_id=301333203]

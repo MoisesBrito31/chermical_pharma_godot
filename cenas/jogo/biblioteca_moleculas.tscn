@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://deflmvlbvl734"]
+
+[ext_resource type="Script" uid="uid://bat1gftttg8gq" path="res://cenas/jogo/biblioteca_moleculas.gd" id="1_51khw"]
+
+[node name="biblioteca_modelecula" type="Control" unique_id=1878929926 node_paths=PackedStringArray("menu_area")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_51khw")
+menu_area = NodePath("PanelContainer/VBoxContainer/ScrollContainer/HFlowContainer")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1979148565]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0.23529412, 0.24705882, 0.26666668, 1)
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=767455559]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=570736447]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=1410412476]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1207002308]
+layout_mode = 2
+theme_override_font_sizes/font_size = 47
+text = "Biblioteca de Molecúlas"
+
+[node name="fechar" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=247568647]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+text = "Fechar"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer" unique_id=475938267]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HFlowContainer" type="HFlowContainer" parent="PanelContainer/VBoxContainer/ScrollContainer" unique_id=893211465]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="button_up" from="PanelContainer/VBoxContainer/HBoxContainer/fechar" to="." method="_on_fechar_button_up"]

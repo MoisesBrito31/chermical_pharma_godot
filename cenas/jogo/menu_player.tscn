@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://dctaj2alki63x"]
+
+[ext_resource type="Script" uid="uid://ygt2m2gl8mc6" path="res://cenas/jogo/menu_player.gd" id="1_4rm6t"]
+
+[node name="menu_player" type="Control" unique_id=2124031518]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_4rm6t")
+
+[node name="txt_player_name" type="RichTextLabel" parent="." unique_id=150884435]
+layout_mode = 0
+offset_right = 614.0
+offset_bottom = 71.0
+theme_override_font_sizes/normal_font_size = 40
+text = "Player name"
+fit_content = true
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=593970958]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.0
+offset_top = -85.5
+offset_right = 98.0
+offset_bottom = 85.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="but_biblioteca" type="Button" parent="VBoxContainer" unique_id=542125538]
+layout_mode = 2
+text = "Biblioteca de particulas"
+
+[node name="but_panejador" type="Button" parent="VBoxContainer" unique_id=1596361765]
+layout_mode = 2
+text = "Planejador de Particulas"
+
+[node name="but_lab_sintese" type="Button" parent="VBoxContainer" unique_id=205697161]
+layout_mode = 2
+text = "Laboratório de Sintese"
+
+[node name="but_salvar" type="Button" parent="VBoxContainer" unique_id=1540341775]
+layout_mode = 2
+text = "Salvar"
+
+[node name="but_sair" type="Button" parent="VBoxContainer" unique_id=1950284315]
+layout_mode = 2
+text = "Sair"
+
+[connection signal="button_up" from="VBoxContainer/but_biblioteca" to="." method="_on_but_biblioteca_button_up"]
+[connection signal="pressed" from="VBoxContainer/but_panejador" to="." method="_on_but_panejador_pressed"]
+[connection signal="button_up" from="VBoxContainer/but_lab_sintese" to="." method="_on_but_lab_sintese_button_up"]
+[connection signal="button_up" from="VBoxContainer/but_salvar" to="." method="_on_but_salvar_button_up"]
+[connection signal="button_up" from="VBoxContainer/but_sair" to="." method="_on_but_sair_button_up"]

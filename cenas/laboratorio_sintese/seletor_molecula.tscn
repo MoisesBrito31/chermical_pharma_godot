@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://coeb5yijl6j3l"]
+
+[ext_resource type="Script" uid="uid://b5da8gsrjke8h" path="res://cenas/laboratorio_sintese/seletor_molecula.gd" id="1_5wps3"]
+
+[node name="seletor_molecula" type="Control" unique_id=113281983 node_paths=PackedStringArray("options_but", "vbox", "view")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5wps3")
+options_but = NodePath("VBoxContainer/OptionButton")
+vbox = NodePath("VBoxContainer")
+view = NodePath("VBoxContainer/SubViewportContainer/SubViewport")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1730137228]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer" unique_id=1325575762]
+layout_mode = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="VBoxContainer" unique_id=1495452828]
+layout_mode = 2
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="VBoxContainer/SubViewportContainer" unique_id=485012371]
+size = Vector2i(1152, 624)
+
+[connection signal="item_selected" from="VBoxContainer/OptionButton" to="." method="_on_option_button_item_selected"]

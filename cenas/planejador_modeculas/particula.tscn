@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://yvjufs3pjxc0"]
+
+[ext_resource type="Texture2D" uid="uid://dakkesj6spuai" path="res://assets/formas/circulo.png" id="1_414q7"]
+[ext_resource type="Script" uid="uid://x3xgxre02t4o" path="res://cenas/planejador_modeculas/particula.gd" id="1_tf7q4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d2rid"]
+size = Vector2(390.00006, 395.00006)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tf7q4"]
+size = Vector2(90, 100.000015)
+
+[node name="particula" type="Node2D" unique_id=894019808 node_paths=PackedStringArray("sprite", "sinal", "colide", "pan_option")]
+script = ExtResource("1_tf7q4")
+sprite = NodePath("Sprite2D")
+sinal = NodePath("Sprite2D/Label")
+colide = NodePath("Sprite2D/par_collisionArea/Collisionshape2D")
+pan_option = NodePath("painel_options")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1316974143]
+z_index = 2
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_414q7")
+
+[node name="Label" type="Label" parent="Sprite2D" unique_id=1797022668]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -225.0
+offset_right = -250.0
+offset_bottom = -225.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.011764706, 0.007843138, 0.03137255, 1)
+theme_override_font_sizes/font_size = 200
+text = "+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="par_mouseArea" type="Area2D" parent="Sprite2D" unique_id=1103786466]
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/par_mouseArea" unique_id=1123459943]
+position = Vector2(7.1525587e-06, -7.4999886)
+shape = SubResource("RectangleShape2D_d2rid")
+
+[node name="par_collisionArea" type="Area2D" parent="Sprite2D" unique_id=1970805536]
+
+[node name="Collisionshape2D" type="CollisionShape2D" parent="Sprite2D/par_collisionArea" unique_id=301333203]
+position = Vector2(4.9999948, 0)
+scale = Vector2(0.9999997, 0.9999997)
+shape = SubResource("RectangleShape2D_tf7q4")
+
+[node name="painel_options" type="PanelContainer" parent="." unique_id=513703117]
+visible = false
+z_index = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = -29.0
+offset_right = 39.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="VBoxContainer" parent="painel_options" unique_id=1937636571]
+layout_mode = 2
+alignment = 1
+
+[node name="but_apagar" type="Button" parent="painel_options/HBoxContainer" unique_id=375724811]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 17
+text = "Apagar"
+
+[node name="but_cancelar" type="Button" parent="painel_options/HBoxContainer" unique_id=1233630891]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 17
+text = "cancelar"
+
+[node name="but_conectar" type="Button" parent="painel_options/HBoxContainer" unique_id=2078824879]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 17
+text = "conectar"
+
+[connection signal="area_entered" from="Sprite2D/par_mouseArea" to="." method="_on_mouse_area_area_entered"]
+[connection signal="area_exited" from="Sprite2D/par_mouseArea" to="." method="_on_mouse_area_area_exited"]
+[connection signal="mouse_entered" from="Sprite2D/par_mouseArea" to="." method="_on_mouse_area_mouse_entered"]
+[connection signal="mouse_exited" from="Sprite2D/par_mouseArea" to="." method="_on_mouse_area_mouse_exited"]
+[connection signal="area_entered" from="Sprite2D/par_collisionArea" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Sprite2D/par_collisionArea" to="." method="_on_area_2d_area_exited"]
+[connection signal="button_up" from="painel_options/HBoxContainer/but_apagar" to="." method="_on_but_apagar_button_up"]
+[connection signal="button_up" from="painel_options/HBoxContainer/but_cancelar" to="." method="_on_but_cancelar_button_up"]
+[connection signal="button_up" from="painel_options/HBoxContainer/but_conectar" to="." method="_on_but_conectar_button_up"]

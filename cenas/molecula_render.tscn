@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b7yn5p6076bt0"]
+
+[ext_resource type="Script" uid="uid://b7rc7bdplbusu" path="res://cenas/molecula_render.gd" id="1_jisgb"]
+
+[node name="molecula_render" type="Node2D" unique_id=1391811308]
+script = ExtResource("1_jisgb")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1787096782]
